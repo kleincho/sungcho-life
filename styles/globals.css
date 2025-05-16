@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white text-black dark:bg-glow-dark dark:text-white;
-  font-family: 'Inter', sans-serif;
+  @apply bg-white text-black dark:bg-[#0f0f0f] dark:text-white;
 }

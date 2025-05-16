@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -27,7 +28,8 @@ export default function Layout({ children }) {
               <span className={`
                 px-4 py-2 border rounded-md transition
                 ${router.pathname === item.href ? 'underline font-bold' : ''}
-                hover:bg-white hover:text-black dark:hover:bg-white dark:hover:text-black
+                hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black
+                shadow-[0_1px_3px_rgba(0,0,0,0.1)]
               `}>
                 {item.label}
               </span>
@@ -35,9 +37,10 @@ export default function Layout({ children }) {
           ))}
           <button
             onClick={() => setDark(!dark)}
-            className="ml-4 text-xs text-gray-500 hover:text-black dark:hover:text-white"
+            className="ml-4 text-xl text-gray-500 hover:text-black dark:hover:text-white"
+            aria-label="Toggle Dark Mode"
           >
-            Toggle {dark ? 'Light' : 'Dark'} Mode
+            {dark ? <FiSun /> : <FiMoon />}
           </button>
         </header>
         <main className="p-6 max-w-3xl mx-auto">{children}</main>

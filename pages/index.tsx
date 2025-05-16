@@ -1,2 +1,9 @@
-// Home Page
-export default function Home() { return <div>Welcome to Sungcho's Site</div>; }
+import Layout from '../components/Layout';
+
+export default function Home() {
+  return (
+    <Layout>
+      <h1>Welcome to Sungcho's Site</h1>
+    </Layout>
+  );
+}

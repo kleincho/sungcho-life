@@ -1,2 +1,9 @@
-// About Page
-export default function About() { return <div>About Sungcho</div>; }
+import Layout from '../components/Layout';
+
+export default function About() {
+  return (
+    <Layout>
+      <h1>About Sungcho</h1>
+    </Layout>
+  );
+}

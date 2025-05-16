@@ -1,1 +1,12 @@
-// Layout component placeholder
+import Head from 'next/head';
+
+export default function Layout({ children }) {
+  return (
+    <>
+      <Head>
+        <title>Sungcho</title>
+      </Head>
+      <main>{children}</main>
+    </>
+  );
+}

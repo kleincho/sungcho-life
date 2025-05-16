@@ -5,7 +5,7 @@ export default function About() {
     <Layout>
       <h1 className="text-2xl font-bold mb-4">What I Value</h1>
       <ul className="list-disc ml-6 space-y-2">
-        <li><strong>Clarity > Cleverness</strong> – I prioritize clarity of thought over complexity.</li>
+        <li><strong>Clarity &gt; Cleverness</strong> – I prioritize clarity of thought over complexity.</li>
         <li><strong>Execution defines belief</strong> – What you build is what you believe.</li>
         <li><strong>Compound conviction</strong> – I trust deep iteration over time more than sudden genius.</li>
       </ul>

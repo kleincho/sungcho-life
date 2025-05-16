@@ -5,3 +5,20 @@
 body {
   @apply font-body bg-white text-black dark:bg-[#0f0f0f] dark:text-white;
 }
+
+@layer base {
+  html {
+    @apply font-body text-black dark:text-white;
+  }
+
+  strong, b, em, i, p, li, span, a, blockquote {
+    @apply font-body;
+  }
+}
+
+@layer base {
+  h1, h2, h3 {
+    @apply font-heading;
+  }
+}
+

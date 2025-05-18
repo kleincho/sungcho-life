@@ -8,8 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['"Space Grotesk"', 'sans-serif'],
-        body: ['Epilogue', 'sans-serif'],
+        sans: ['"Epilogue"', 'sans-serif'],
       }
     }
   },

@@ -10,7 +10,7 @@ type Props = {
 export default function PostPage({ source }: Props) {
   return (
     <Layout>
-      <div className="prose font-body dark:prose-invert">
+      <div className="prose font-sans dark:prose-invert">
         <MDXRemote {...source} />
       </div>
     </Layout>

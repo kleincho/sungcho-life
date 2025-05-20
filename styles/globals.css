@@ -3,22 +3,22 @@
 @tailwind utilities;
 
 body {
-  @apply font-sans bg-white text-black dark:bg-[#0f0f0f] dark:text-white;
+  @apply font-['Space_Grotesk'] bg-white text-black dark:bg-[#0f0f0f] dark:text-white;
 }
 
 @layer base {
   html {
-    @apply font-sans text-black dark:text-white;
+    @apply font-['Space_Grotesk'] text-black dark:text-white;
   }
 
   strong, b, em, i, p, li, span, a, blockquote {
-    @apply font-sans;
+    @apply font-['Space_Grotesk'];
   }
 }
 
 @layer base {
   h1, h2, h3 {
-    @apply font-sans;
+    @apply font-['Space_Grotesk'];
   }
 }
 

@@ -16,6 +16,25 @@ body {
   }
 }
 
+.typing-effect::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  /* Ensure the cursor color matches the text color, 
+     or set a specific color. currentColor should work with dark/light mode. */
+  color: currentColor; 
+  /* Adjust margin if needed to position the cursor correctly */
+  margin-left: 0.1em; 
+}
+
+@keyframes blink {
+  from, to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 @layer base {
   h1, h2, h3 {
     @apply font-['Space_Grotesk'];

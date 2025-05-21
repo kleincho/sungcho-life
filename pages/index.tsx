@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 
-const FULL_TEXT = "Building for something greater.";
-const TYPING_SPEED = 120;
-const DELETING_SPEED = 70;
-const PAUSE_DURATION = 1500; // 1.5 seconds
+const FULL_TEXT = "Building for something greater";
+const TYPING_SPEED = 200;
+const DELETING_SPEED = 200;
+const PAUSE_DURATION = 500;
 
 export default function Home() {
   const [displayedText, setDisplayedText] = useState('');
@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <Layout>
       <h1 className="text-3xl font-bold mb-4 typing-effect">{displayedText}</h1>
-      <p className="text-lg mb-6">I’m Sung-Yun Cho, a builder at the intersection of philosophy, technology, and execution.</p>
+      <p className="text-lg mb-6">I’m Sung Cho, a builder at the intersection of philosophy, technology, and execution.</p>
       <blockquote className="italic text-gray-600 dark:text-gray-400">
         “Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.”
       </blockquote>

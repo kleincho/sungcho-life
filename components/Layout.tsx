@@ -5,7 +5,7 @@ import { FiSun, FiMoon } from 'react-icons/fi';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  { label: 'Miscellaneous', href: '/miscellaneous' },
   { label: 'Bio', href: '/bio' },
   { label: 'Writing', href: '/writing' },
   { label: 'Projects', href: '/projects' },

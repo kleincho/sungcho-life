@@ -11,10 +11,15 @@ export default function Miscellaneous() {
       </ul>
 
       <h2 className="text-xl font-semibold mb-2">Interests</h2>
-      <ul className="list-disc ml-6 space-y-1">
+      <ul className="list-disc ml-6 space-y-1 mb-10">
         <li>Philosophy of technology</li>
         <li>Embedded systems and robotics</li>
         <li>Long-term thinking and founder mindset</li>
+      </ul>
+
+      <h2 className="text-xl font-semibold mb-2">Quotes</h2>
+      <ul className="list-disc ml-6 space-y-1">
+        <li>"Morning brings back the heroic ages" - Henry David Thoreau, <em>Walden</em></li>
       </ul>
     </Layout>
   );

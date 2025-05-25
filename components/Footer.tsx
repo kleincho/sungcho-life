@@ -2,31 +2,19 @@ import { useEffect } from 'react';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 
 export default function Footer() {
-  useEffect(() => {
-    // Load Substack widget script
-    const script = document.createElement('script');
-    script.src = 'https://substackapi.com/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <footer className="border-t mt-16 py-12">
       <div className="max-w-3xl mx-auto px-6">
         {/* Newsletter Section */}
         <div className="text-center mb-12">
           <h3 className="text-xl font-bold mb-4">Stay in the loop</h3>
-          <div 
-            className="substack-widget"
-            data-substack-url="sungcho.substack.com"
-            data-placeholder="Enter your email"
-            data-button-text="Subscribe"
-            data-substack-embed="true"
-            data-substack-domain="sungcho.substack.com"
+          <iframe 
+            src="https://sungcho.substack.com/embed"
+            width="100%"
+            height="320"
+            style={{ border: '1px solid #EEE', background: 'white' }}
+            frameBorder="0"
+            scrolling="no"
           />
         </div>
 

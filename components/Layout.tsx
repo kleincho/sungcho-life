@@ -2,13 +2,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { FiSun, FiMoon } from 'react-icons/fi';
+import Footer from './Footer';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Miscellaneous', href: '/miscellaneous' },
   { label: 'Bio', href: '/bio' },
   { label: 'Writing', href: '/writing' },
   { label: 'Projects', href: '/projects' },
+  { label: 'Miscellaneous', href: '/miscellaneous' },
 ];
 
 export default function Layout({ children }) {
@@ -21,7 +22,7 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <div className="min-h-screen font-sans">
+      <div className="min-h-screen font-sans flex flex-col">
         <header className="flex justify-end gap-2 p-4 border-b sticky top-0 bg-white dark:bg-[#0f0f0f] z-50">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href}>
@@ -43,7 +44,8 @@ export default function Layout({ children }) {
             {dark ? <FiSun /> : <FiMoon />}
           </button>
         </header>
-        <main className="p-6 max-w-3xl mx-auto">{children}</main>
+        <main className="flex-grow p-6 max-w-3xl mx-auto">{children}</main>
+        <Footer />
       </div>
     </>
   )

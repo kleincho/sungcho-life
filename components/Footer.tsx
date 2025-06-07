@@ -1,21 +1,43 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      window.open(`https://sungcho.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
+      setEmail('');
+    }
+  };
+
   return (
     <footer className="border-t mt-16 py-12">
       <div className="max-w-3xl mx-auto px-6">
         {/* Newsletter Section */}
         <div className="text-center mb-12">
           <h3 className="text-xl font-bold mb-4">Stay in the loop</h3>
-          <iframe 
-            src="https://sungcho.substack.com/embed"
-            width="100%"
-            height="320"
-            style={{ border: '1px solid #EEE', background: 'white' }}
-            frameBorder="0"
-            scrolling="no"
-          />
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+              className="flex-grow px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 
+                focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white
+                bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+            />
+            <button
+              type="submit"
+              className="px-6 py-2 bg-black dark:bg-white text-white dark:text-black 
+                rounded-md font-medium hover:opacity-90 transition-opacity
+                focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
 
         {/* Social Links */}

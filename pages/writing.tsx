@@ -1,17 +1,13 @@
-// pages/writing.tsx
-import React from 'react';
-import Layout from '../components/Layout';
 import Link from 'next/link';
+import Layout from '../components/Layout';
 
 export default function Writing() {
   return (
     <Layout>
-      <h1 className="text-2xl font-bold mb-4">Writing</h1>
-      <ul className="list-disc ml-6">
+      <h1>Writing</h1>
+      <ul>
         <li>
-          <Link href="/posts/why-i-build">
-            Why I Build
-          </Link>
+          <Link href="/posts/why-i-build">Why I Build</Link>
         </li>
       </ul>
     </Layout>

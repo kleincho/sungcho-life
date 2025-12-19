@@ -1,43 +1,107 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  background-color: #ffffff;
+  color: #111111;
+  font-family: "Times New Roman", Georgia, serif;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-  @apply font-['Space_Grotesk'] bg-white text-black dark:bg-[#0f0f0f] dark:text-white;
+  margin: 0;
 }
 
-@layer base {
-  html {
-    @apply font-['Space_Grotesk'] text-black dark:text-white;
-  }
-
-  strong, b, em, i, p, li, span, a, blockquote {
-    @apply font-['Space_Grotesk'];
-  }
+a {
+  color: inherit;
+  text-decoration: underline;
 }
 
-.typing-effect::after {
-  content: '|';
-  animation: blink 1s step-end infinite;
-  /* Ensure the cursor color matches the text color, 
-     or set a specific color. currentColor should work with dark/light mode. */
-  color: currentColor; 
-  /* Adjust margin if needed to position the cursor correctly */
-  margin-left: 0.1em; 
+a:hover {
+  text-decoration: none;
 }
 
-@keyframes blink {
-  from, to {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+.page-shell {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
 }
 
-@layer base {
-  h1, h2, h3 {
-    @apply font-['Space_Grotesk'];
-  }
+.site-header {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 24px 0 12px;
+  margin-bottom: 32px;
+}
+
+.site-title a {
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.site-nav a {
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+.site-main {
+  padding: 0;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 32px 0 8px;
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+ul {
+  padding-left: 20px;
+  margin: 0 0 16px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+blockquote {
+  margin: 16px 0;
+  padding-left: 12px;
+  border-left: 2px solid #cccccc;
+  color: #444444;
+}
+
+.site-footer {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 48px;
+  padding-top: 16px;
+  font-size: 14px;
+  color: #444444;
+}
+
+.year-list {
+  margin: 0 0 24px;
+}
+
+.year-list li {
+  margin-bottom: 4px;
 }
 

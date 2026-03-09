@@ -106,6 +106,7 @@ def build_lang(lang):
                content=html_body,
                lang=nav_lang,
                page_slug=page_slug,
+               show_lang_toggle=False,
                include_mathjax=False,
                include_accordion=False,
                custom_styles=None)
@@ -126,6 +127,7 @@ def build_lang(lang):
                content=html_body,
                lang=nav_lang,
                page_slug=page_slug,
+               show_lang_toggle=True,
                include_mathjax=False,
                include_accordion=False,
                custom_styles=None)
@@ -146,6 +148,7 @@ def build_lang(lang):
                content=html_body,
                lang=nav_lang,
                page_slug=page_slug,
+               show_lang_toggle=False,
                include_mathjax=False,
                include_accordion=False,
                custom_styles=None)
@@ -156,6 +159,7 @@ def build_lang(lang):
            entries_by_year=group_by_year(essays),
            lang=nav_lang,
            page_slug='essays.html',
+           show_lang_toggle=True,
            include_mathjax=False,
            include_accordion=False,
            custom_styles=None)
@@ -165,6 +169,7 @@ def build_lang(lang):
            entries_by_year=group_by_year(papers),
            lang=nav_lang,
            page_slug='papers.html',
+           show_lang_toggle=False,
            include_mathjax=False,
            include_accordion=False,
            custom_styles=None)

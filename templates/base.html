@@ -36,6 +36,7 @@
       <li><a href="{% if lang == 'kr' %}/kr/papers.html{% else %}/papers.html{% endif %}">Papers</a></li>
       <li><a href="{% if lang == 'kr' %}/kr/notes.html{% else %}/notes.html{% endif %}">Notes</a></li>
       <li><a href="{% if lang == 'kr' %}/kr/books.html{% else %}/books.html{% endif %}">Books</a></li>
+      {% if show_lang_toggle %}
       <li>
         {% if lang == 'kr' %}
         <a href="/{{ page_slug }}">English</a>
@@ -43,6 +44,7 @@
         <a href="/kr/{{ page_slug }}">한국어</a>
         {% endif %}
       </li>
+      {% endif %}
     </ul>
   </div>
   <div id="left"></div>

@@ -77,12 +77,57 @@ def group_by_year(entries):
     return sorted(by_year.items(), reverse=True)
 
 
+def scan_life_entries(content_dir):
+    """Scan life/ subpages, return list sorted by start date."""
+    entries = []
+    d = Path(content_dir) / 'life'
+    if not d.exists():
+        return entries
+    for md_file in sorted(d.glob('*.md')):
+        meta, _ = read_md(md_file)
+        entries.append({
+            'slug': md_file.stem,
+            'title': meta.get('title', md_file.stem),
+            'start': meta.get('start', md_file.stem),
+        })
+    entries.sort(key=lambda e: e['start'])
+    return entries
+
+
+def build_life_timeline_html(entries, lang):
+    """Generate HTML list of life period links for the about page."""
+    prefix = '/kr/life/' if lang == 'kr' else '/life/'
+    items = ''.join(
+        f'<li><a href="{prefix}{e["slug"]}.html">{e["title"]}</a></li>\n'
+        for e in entries
+    )
+    return f'<ul>\n{items}</ul>'
+
+
 def build_lang(lang):
     """Build all pages for a given language ('en' or 'kr')."""
     content_dir = base_dir / 'content' / lang
     out_root = base_dir if lang == 'en' else base_dir / 'kr'
 
     nav_lang = lang
+
+    # ── Life subpages ─────────────────────────────────────────────────────────
+    life_entries = scan_life_entries(content_dir)
+
+    for entry in life_entries:
+        md_path = content_dir / 'life' / f"{entry['slug']}.md"
+        meta, html_body = read_md(md_path)
+        out_file = out_root / 'life' / f"{entry['slug']}.html"
+        render('essay.html', out_file,
+               title=entry['title'],
+               essay_title=entry['title'],
+               content=html_body,
+               lang=nav_lang,
+               page_slug=f"life/{entry['slug']}.html",
+               show_lang_toggle=False,
+               include_mathjax=False,
+               include_accordion=False,
+               custom_styles=None)
 
     # ── Simple pages ──────────────────────────────────────────────────────────
     simple_pages = ['index', 'about', 'notes', 'books']
@@ -95,10 +140,11 @@ def build_lang(lang):
         meta, html_body = read_md(md_path)
         title = meta.get('title', page.capitalize())
 
-        # index.html goes to root of out_root, others to out_root/<page>.html
-        out_file = out_root / 'index.html' if page == 'index' else out_root / f'{page}.html'
+        # Append life timeline to about page
+        if page == 'about' and life_entries:
+            html_body += build_life_timeline_html(life_entries, lang)
 
-        # page_slug for language toggle
+        out_file = out_root / 'index.html' if page == 'index' else out_root / f'{page}.html'
         page_slug = 'index.html' if page == 'index' else f'{page}.html'
 
         render('simple.html', out_file,
@@ -175,11 +221,45 @@ def build_lang(lang):
            custom_styles=None)
 
 
+def build_kr_essays():
+    """Build only Korean essay pages and the essays listing."""
+    content_dir = base_dir / 'content' / 'kr'
+    out_root = base_dir / 'kr'
+
+    essay_url_prefix = '/kr/essays/'
+    essays = scan_entries(content_dir / 'essays', essay_url_prefix, 'kr')
+
+    for essay in essays:
+        md_path = content_dir / 'essays' / f"{essay['slug']}.md"
+        meta, html_body = read_md(md_path)
+        out_file = out_root / 'essays' / f"{essay['slug']}.html"
+        render('essay.html', out_file,
+               title=essay['title'],
+               essay_title=essay['title'],
+               content=html_body,
+               lang='kr',
+               page_slug=f"essays/{essay['slug']}.html",
+               show_lang_toggle=True,
+               include_mathjax=False,
+               include_accordion=False,
+               custom_styles=None)
+
+    render('list.html', out_root / 'essays.html',
+           title='에세이',
+           entries_by_year=group_by_year(essays),
+           lang='kr',
+           page_slug='essays.html',
+           show_lang_toggle=True,
+           include_mathjax=False,
+           include_accordion=False,
+           custom_styles=None)
+
+
 def main():
     print("Building English pages...")
     build_lang('en')
-    print("\nBuilding Korean pages...")
-    build_lang('kr')
+    print("\nBuilding Korean essay pages...")
+    build_kr_essays()
     print("\nBuild complete!")
 
 

@@ -1,2 +1,0 @@
-# sungcho-life
-Personal Website

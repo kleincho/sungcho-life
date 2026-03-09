@@ -30,25 +30,25 @@
   <div id="menu">
     <span class="title">Sung Cho</span>
     <ul>
-      <li><a href="{% if lang == 'kr' %}/kr/{% else %}/{% endif %}">Home</a></li>
-      <li><a href="{% if lang == 'kr' %}/kr/about.html{% else %}/about.html{% endif %}">About</a></li>
-      <li><a href="{% if lang == 'kr' %}/kr/essays.html{% else %}/essays.html{% endif %}">Essays</a></li>
-      <li><a href="{% if lang == 'kr' %}/kr/papers.html{% else %}/papers.html{% endif %}">Papers</a></li>
-      <li><a href="{% if lang == 'kr' %}/kr/notes.html{% else %}/notes.html{% endif %}">Notes</a></li>
-      <li><a href="{% if lang == 'kr' %}/kr/books.html{% else %}/books.html{% endif %}">Books</a></li>
-      {% if show_lang_toggle %}
-      <li>
-        {% if lang == 'kr' %}
-        <a href="/{{ page_slug }}">English</a>
-        {% else %}
-        <a href="/kr/{{ page_slug }}">한국어</a>
-        {% endif %}
-      </li>
-      {% endif %}
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/essays.html">Essays</a></li>
+      <li><a href="/papers.html">Papers</a></li>
+      <li><a href="/notes.html">Notes</a></li>
+      <li><a href="/books.html">Books</a></li>
     </ul>
   </div>
   <div id="left"></div>
   <div id="content">
+    {% if show_lang_toggle %}
+    <p style="font-size: 0.85em; margin-bottom: 1.5em;">
+      {% if lang == 'kr' %}
+      <a href="/{{ page_slug }}">English</a>
+      {% else %}
+      <a href="/kr/{{ page_slug }}">Korean</a>
+      {% endif %}
+    </p>
+    {% endif %}
     {% block content %}{% endblock %}
   </div>
 

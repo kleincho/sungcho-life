@@ -1,0 +1,288 @@
+/* Design 2: Brutalist - Pure black & white, no color, stark minimal */
+/* Base styles */
+body {
+  background-color: #ffffff; 
+  color: #000000; 
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #000000;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Navigation menu */
+#menu {
+  float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+  text-align: right;
+  width: 150px;
+  font-family: "Courier New", Courier, monospace;
+  border-left: 3px solid #000000;
+  padding-left: 15px;
+}
+
+#menu .title {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li {
+  margin-bottom: 8px;
+}
+
+#menu li a {
+  display: inline-block;
+  color: #000000;
+}
+
+/* Left spacer */
+#left {
+  height: 1px;
+  float: left;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Content area */
+#content {
+  margin-top: 15px;
+  float: left;
+  width: 500px;
+  max-width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border-left: 2px solid #000000;
+}
+
+#content h1, #content h2, #content h3 {
+  font-family: "Courier New", Courier, monospace;
+  margin: 1.5em 0 0.5em 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#content h1 {
+  font-size: 2em;
+  border-bottom: 3px solid #000000;
+  padding-bottom: 0.2em;
+}
+
+#content h2 {
+  font-size: 1.5em;
+}
+
+#content h3 {
+  font-size: 1.2em;
+}
+
+#content .byline, #content .byline a, #content .note {
+  font-size: 0.875em;
+  color: #666;
+}
+
+#content p, #content ul {
+  color: #000000;
+  line-height: 20px;
+}
+
+#content sup.note {
+  display: inline-block;
+  margin-top: -5px;
+}
+
+#content p.notop {
+  margin-top: 0;
+}
+
+#content .thanks {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 2px solid #000;
+  margin-bottom: 4em;
+  font-size: smaller;
+}
+
+#content li {
+  margin-bottom: 0.7em;
+}
+
+.post + .post {
+  margin-top: 50px;
+}
+
+/* Accordion styles */
+.accordion {
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: 3px solid #000000;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+.active, .accordion:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.panel {
+  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+}
+
+.panel p,
+.panel ul {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* Special list styles */
+li.sick {
+  font-weight: bold;
+}
+
+li.audited {
+  font-style: italic;
+}
+
+/* Tablet styles (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  #left {
+    width: 100px;
+  }
+  
+  #content {
+    width: 450px;
+  }
+  
+  #menu {
+    margin-right: 15px;
+    width: 130px;
+  }
+}
+
+/* Mobile styles (< 768px) */
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  
+  #menu {
+    float: none;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    padding: 0 15px;
+    box-sizing: border-box;
+    border-left: none;
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  #menu .title {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+  
+  #menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 15px;
+  }
+  
+  #menu li {
+    margin: 0;
+  }
+  
+  #left {
+    display: none;
+  }
+  
+  #content {
+    float: none;
+    width: 100%;
+    margin-top: 0;
+    padding: 0 20px;
+  }
+  
+  #content h1 {
+    font-size: 1.7em;
+  }
+  
+  #content h2 {
+    font-size: 1.4em;
+  }
+  
+  #content h3 {
+    font-size: 1.1em;
+  }
+  
+  .accordion {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  .panel p,
+  .panel ul {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 13px;
+  }
+  
+  #content {
+    padding: 0 15px;
+  }
+  
+  #menu ul {
+    gap: 8px 12px;
+  }
+}
+

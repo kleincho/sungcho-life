@@ -1,0 +1,283 @@
+/* Design 5: Swiss Minimal - Clean sans-serif, subtle grey, Swiss typography */
+/* Base styles */
+body {
+  background-color: #f8f8f8; 
+  color: #1a1a1a; 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 1px solid #1a1a1a;
+  transition: all 0.15s ease;
+}
+
+a:hover {
+  border-bottom-width: 2px;
+}
+
+/* Navigation menu */
+#menu {
+  float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+  text-align: right;
+  width: 150px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#menu .title {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li {
+  margin-bottom: 4px;
+}
+
+#menu li a {
+  display: inline-block;
+  color: #1a1a1a;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Left spacer */
+#left {
+  height: 1px;
+  float: left;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Content area */
+#content {
+  margin-top: 15px;
+  float: left;
+  width: 500px;
+  max-width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+#content h1, #content h2, #content h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 2em 0 0.5em 0;
+  color: #1a1a1a;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+#content h1 {
+  font-size: 28px;
+  margin-top: 0;
+}
+
+#content h2 {
+  font-size: 20px;
+}
+
+#content h3 {
+  font-size: 16px;
+}
+
+#content .byline, #content .byline a, #content .note {
+  font-size: 11px;
+  color: #666;
+  font-weight: 400;
+}
+
+#content p, #content ul {
+  color: #1a1a1a;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+#content sup.note {
+  display: inline-block;
+  margin-top: -5px;
+}
+
+#content p.notop {
+  margin-top: 0;
+}
+
+#content .thanks {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #ccc;
+  margin-bottom: 4em;
+  font-size: smaller;
+}
+
+#content li {
+  margin-bottom: 0.7em;
+}
+
+.post + .post {
+  margin-top: 50px;
+}
+
+/* Accordion styles */
+.accordion {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  cursor: pointer;
+  padding: 16px 18px;
+  width: 100%;
+  border: none;
+  border-top: 1px solid #d0d0d0;
+  border-bottom: 1px solid #d0d0d0;
+  text-align: left;
+  outline: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+.active, .accordion:hover {
+  background-color: #f0f0f0;
+}
+
+.panel {
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #1a1a1a;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.panel p,
+.panel ul {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* Special list styles */
+li.sick {
+  font-weight: 700;
+}
+
+li.audited {
+  color: #666;
+}
+
+/* Tablet styles (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  #left {
+    width: 100px;
+  }
+  
+  #content {
+    width: 450px;
+  }
+  
+  #menu {
+    margin-right: 15px;
+    width: 130px;
+  }
+}
+
+/* Mobile styles (< 768px) */
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 13px;
+  }
+  
+  #menu {
+    float: none;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d0d0d0;
+  }
+  
+  #menu .title {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  #menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 15px;
+  }
+  
+  #menu li {
+    margin: 0;
+  }
+  
+  #left {
+    display: none;
+  }
+  
+  #content {
+    float: none;
+    width: 100%;
+    margin-top: 0;
+    padding: 0 20px;
+  }
+  
+  #content h1 {
+    font-size: 24px;
+  }
+  
+  #content h2 {
+    font-size: 18px;
+  }
+  
+  #content h3 {
+    font-size: 15px;
+  }
+  
+  .accordion {
+    padding: 14px 15px;
+    font-size: 13px;
+  }
+  
+  .panel p,
+  .panel ul {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 13px;
+  }
+  
+  #content {
+    padding: 0 15px;
+  }
+  
+  #menu ul {
+    gap: 8px 12px;
+  }
+}
+

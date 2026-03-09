@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if entries_by_year %}
+{% for year, items in entries_by_year %}
+<h4>{{ year }}</h4>
+<ul>
+{% for item in items %}
+<li><a href="{{ item.url }}">{{ item.title }}</a>{% if item.description %} — {{ item.description }}{% endif %}</li>
+{% endfor %}
+</ul>
+{% endfor %}
+{% else %}
+<p>No entries yet.</p>
+{% endif %}
+{% endblock %}

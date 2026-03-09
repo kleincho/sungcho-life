@@ -1,0 +1,302 @@
+/* Design 4: Academic - Cream background, serif typography, literary/scholarly */
+/* Base styles */
+body {
+  background-color: #faf8f3; 
+  color: #2b2b2b; 
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #8b4513;
+  text-decoration: none;
+  border-bottom: 1px solid #d4a574;
+}
+
+a:hover {
+  color: #5c2e0a;
+  border-bottom-color: #8b4513;
+}
+
+/* Navigation menu */
+#menu {
+  float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+  text-align: right;
+  width: 150px;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+#menu .title {
+  display: block;
+  margin-bottom: 12px;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  color: #5c2e0a;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li {
+  margin-bottom: 6px;
+}
+
+#menu li a {
+  display: inline-block;
+  color: #8b4513;
+  font-size: 13px;
+}
+
+/* Left spacer */
+#left {
+  height: 1px;
+  float: left;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Content area */
+#content {
+  margin-top: 15px;
+  float: left;
+  width: 500px;
+  max-width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+#content h1, #content h2, #content h3 {
+  font-family: "Georgia", "Times New Roman", serif;
+  margin: 1.5em 0 0.5em 0;
+  color: #1a1a1a;
+  font-weight: normal;
+}
+
+#content h1 {
+  font-size: 2.2em;
+  font-variant: small-caps;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #d4a574;
+  padding-bottom: 0.3em;
+}
+
+#content h2 {
+  font-size: 1.6em;
+  font-style: italic;
+}
+
+#content h3 {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+#content .byline, #content .byline a, #content .note {
+  font-size: 0.875em;
+  color: #777;
+  font-style: italic;
+}
+
+#content p, #content ul {
+  color: #2b2b2b;
+  line-height: 20px;
+}
+
+#content p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+#content sup.note {
+  display: inline-block;
+  margin-top: -5px;
+}
+
+#content p.notop {
+  margin-top: 0;
+}
+
+#content .thanks {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #d4a574;
+  margin-bottom: 4em;
+  font-size: smaller;
+}
+
+#content li {
+  margin-bottom: 0.8em;
+}
+
+.post + .post {
+  margin-top: 50px;
+}
+
+/* Accordion styles */
+.accordion {
+  background-color: #f5f1e8;
+  color: #2b2b2b;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: 1px solid #d4a574;
+  border-left: 4px solid #8b4513;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.active, .accordion:hover {
+  background-color: #ebe5d9;
+  border-left-width: 6px;
+}
+
+.panel {
+  padding: 0;
+  background-color: #faf8f3;
+  color: #2b2b2b;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border-left: 2px solid #d4a574;
+}
+
+.panel p,
+.panel ul {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* Special list styles */
+li.sick {
+  color: #8b4513;
+  font-weight: 700;
+}
+
+li.audited {
+  color: #8b4513;
+  font-style: italic;
+}
+
+/* Paper/course highlighting */
+strong[style*="cyan"] {
+  color: #8b4513 !important;
+}
+
+/* Tablet styles (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  #left {
+    width: 100px;
+  }
+  
+  #content {
+    width: 450px;
+  }
+  
+  #menu {
+    margin-right: 15px;
+    width: 130px;
+  }
+}
+
+/* Mobile styles (< 768px) */
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  
+  #menu {
+    float: none;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #f5f1e8;
+    border-bottom: 2px solid #d4a574;
+  }
+  
+  #menu .title {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+  
+  #menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 15px;
+  }
+  
+  #menu li {
+    margin: 0;
+  }
+  
+  #left {
+    display: none;
+  }
+  
+  #content {
+    float: none;
+    width: 100%;
+    margin-top: 0;
+    padding: 0 20px;
+  }
+  
+  #content p {
+    text-align: left;
+  }
+  
+  #content h1 {
+    font-size: 1.8em;
+  }
+  
+  #content h2 {
+    font-size: 1.4em;
+  }
+  
+  #content h3 {
+    font-size: 1.2em;
+  }
+  
+  .accordion {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  .panel p,
+  .panel ul {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 13px;
+  }
+  
+  #content {
+    padding: 0 15px;
+  }
+  
+  #menu ul {
+    gap: 8px 12px;
+  }
+}
+

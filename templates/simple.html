@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if page_slug != 'index.html' %}<h1>{{ title }}</h1>{% endif %}
+{% if show_lang_toggle %}
+<p style="font-size: 0.85em; margin-top: -0.5em; margin-bottom: 2em;">
+  {% if lang == 'kr' %}<a href="/{{ page_slug }}">English</a>
+  {% else %}<a href="/kr/{{ page_slug }}">Korean</a>{% endif %}
+</p>
+{% endif %}
 {{ content | safe }}
 {% endblock %}
 

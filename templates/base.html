@@ -36,19 +36,11 @@
       <li><a href="/papers.html">Papers</a></li>
       <li><a href="/notes.html">Notes</a></li>
       <li><a href="/books.html">Books</a></li>
+      <li><a href="/courses.html">Courses</a></li>
     </ul>
   </div>
   <div id="left"></div>
   <div id="content">
-    {% if show_lang_toggle %}
-    <p style="font-size: 0.85em; margin-bottom: 1.5em;">
-      {% if lang == 'kr' %}
-      <a href="/{{ page_slug }}">English</a>
-      {% else %}
-      <a href="/kr/{{ page_slug }}">Korean</a>
-      {% endif %}
-    </p>
-    {% endif %}
     {% block content %}{% endblock %}
   </div>
 

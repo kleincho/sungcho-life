@@ -124,13 +124,13 @@ def build_lang(lang):
                content=html_body,
                lang=nav_lang,
                page_slug=f"life/{entry['slug']}.html",
-               show_lang_toggle=False,
+               show_lang_toggle=True,
                include_mathjax=False,
                include_accordion=False,
                custom_styles=None)
 
     # ── Simple pages ──────────────────────────────────────────────────────────
-    simple_pages = ['index', 'about', 'notes', 'books']
+    simple_pages = ['index', 'about', 'notes', 'books', 'courses']
     for page in simple_pages:
         md_path = content_dir / f'{page}.md'
         if not md_path.exists():
@@ -222,9 +222,39 @@ def build_lang(lang):
 
 
 def build_kr_essays():
-    """Build only Korean essay pages and the essays listing."""
+    """Build Korean essay pages, essays listing, and about page."""
     content_dir = base_dir / 'content' / 'kr'
     out_root = base_dir / 'kr'
+
+    # ── Korean life pages ─────────────────────────────────────────────────────
+    life_entries = scan_life_entries(content_dir)
+    for entry in life_entries:
+        md_path = content_dir / 'life' / f"{entry['slug']}.md"
+        meta, html_body = read_md(md_path)
+        render('essay.html', out_root / 'life' / f"{entry['slug']}.html",
+               title=entry['title'],
+               essay_title=entry['title'],
+               content=html_body,
+               lang='kr',
+               page_slug=f"life/{entry['slug']}.html",
+               show_lang_toggle=True,
+               include_mathjax=False,
+               include_accordion=False,
+               custom_styles=None)
+
+    # ── Korean about page ─────────────────────────────────────────────────────
+    about_md = content_dir / 'about.md'
+    if about_md.exists():
+        meta, html_body = read_md(about_md)
+        render('simple.html', out_root / 'about.html',
+               title=meta.get('title', '소개'),
+               content=html_body,
+               lang='kr',
+               page_slug='about.html',
+               show_lang_toggle=False,
+               include_mathjax=False,
+               include_accordion=False,
+               custom_styles=None)
 
     essay_url_prefix = '/kr/essays/'
     essays = scan_entries(content_dir / 'essays', essay_url_prefix, 'kr')

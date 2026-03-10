@@ -2,6 +2,7 @@
 
 {% block content %}
 <h3>{{ essay_title }}</h3>
+{% if essay_date %}<p class="byline">{{ essay_date }}</p>{% endif %}
 {% if show_lang_toggle %}
 <p style="font-size: 0.85em; margin-top: -0.5em; margin-bottom: 2em;">
   {% if lang == 'kr' %}<a href="/{{ page_slug }}">English</a>

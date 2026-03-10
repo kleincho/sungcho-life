@@ -11,4 +11,4 @@ Born and raised in Seoul, Korea, I moved to the United States in 2023 to pursue 
 I'm an aspiring researcher, entrepreneur, investor, engineer, and educator. Feel free to explore my website to learn more about me and my work.
 
 
-[email](mailto:sungcho9@wharton.upenn.edu) · [GitHub](https://github.com/sungycho) · [Twitter](https://twitter.com/sungcholife) · [LinkedIn](https://linkedin.com/in/sungyuncho0912)
+[email](mailto:sungcho9@wharton.upenn.edu) · [github](https://github.com/sungycho) · [x](https://x.com/sungcholife) · [linkedin](https://linkedin.com/in/sungyuncho0912)

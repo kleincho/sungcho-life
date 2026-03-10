@@ -8,6 +8,7 @@ import os
 import markdown
 import yaml
 from pathlib import Path
+from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 from collections import defaultdict
 
@@ -166,10 +167,12 @@ def build_lang(lang):
         meta, html_body = read_md(md_path)
         out_file = out_root / 'essays' / f"{essay['slug']}.html"
         page_slug = f"essays/{essay['slug']}.html"
+        essay_date = datetime.strptime(essay['date'], '%Y-%m-%d').strftime('%B %-d, %Y') if essay.get('date') else ''
 
         render('essay.html', out_file,
                title=essay['title'],
                essay_title=essay['title'],
+               essay_date=essay_date,
                content=html_body,
                lang=nav_lang,
                page_slug=page_slug,
@@ -187,10 +190,12 @@ def build_lang(lang):
         meta, html_body = read_md(md_path)
         out_file = out_root / 'papers' / f"{paper['slug']}.html"
         page_slug = f"papers/{paper['slug']}.html"
+        essay_date = datetime.strptime(paper['date'], '%Y-%m-%d').strftime('%B %-d, %Y') if paper.get('date') else ''
 
         render('essay.html', out_file,
                title=paper['title'],
                essay_title=paper['title'],
+               essay_date=essay_date,
                content=html_body,
                lang=nav_lang,
                page_slug=page_slug,
@@ -242,20 +247,6 @@ def build_kr_essays():
                include_accordion=False,
                custom_styles=None)
 
-    # ── Korean about page ─────────────────────────────────────────────────────
-    about_md = content_dir / 'about.md'
-    if about_md.exists():
-        meta, html_body = read_md(about_md)
-        render('simple.html', out_root / 'about.html',
-               title=meta.get('title', '소개'),
-               content=html_body,
-               lang='kr',
-               page_slug='about.html',
-               show_lang_toggle=False,
-               include_mathjax=False,
-               include_accordion=False,
-               custom_styles=None)
-
     essay_url_prefix = '/kr/essays/'
     essays = scan_entries(content_dir / 'essays', essay_url_prefix, 'kr')
 
@@ -263,9 +254,11 @@ def build_kr_essays():
         md_path = content_dir / 'essays' / f"{essay['slug']}.md"
         meta, html_body = read_md(md_path)
         out_file = out_root / 'essays' / f"{essay['slug']}.html"
+        essay_date = datetime.strptime(essay['date'], '%Y-%m-%d').strftime('%Y년 %-m월 %-d일') if essay.get('date') else ''
         render('essay.html', out_file,
                title=essay['title'],
                essay_title=essay['title'],
+               essay_date=essay_date,
                content=html_body,
                lang='kr',
                page_slug=f"essays/{essay['slug']}.html",
@@ -275,7 +268,7 @@ def build_kr_essays():
                custom_styles=None)
 
     render('list.html', out_root / 'essays.html',
-           title='에세이',
+           title='글',
            entries_by_year=group_by_year(essays),
            lang='kr',
            page_slug='essays.html',

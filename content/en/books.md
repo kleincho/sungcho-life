@@ -3,7 +3,7 @@ title: Books
 ---
 
 ### Philosophy
-- *Siddhartha$* — Hermann Hesse
+- *Siddhartha* — Hermann Hesse
 - *Meditations* — Marcus Aurelius
 - *Walden* — Henry David Thoreau		
 - *Why Fish Don’t Exist* — Lulu Miller

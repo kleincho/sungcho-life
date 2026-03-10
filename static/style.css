@@ -197,28 +197,6 @@ strong[style*="cyan"] {
   color: #8b4513 !important;
 }
 
-/* Large screen styles (> 1400px) */
-@media screen and (min-width: 1400px) {
-  #content {
-    width: 750px;
-  }
-
-  #left {
-    width: 250px;
-  }
-}
-
-/* Wide screen styles (> 1800px) */
-@media screen and (min-width: 1800px) {
-  #content {
-    width: 950px;
-  }
-
-  #left {
-    width: 300px;
-  }
-}
-
 /* Tablet styles (768px - 1024px) */
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   #left {

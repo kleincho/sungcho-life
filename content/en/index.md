@@ -4,7 +4,7 @@ title: Sung Cho
 
 <img src="/static/life/profile.jpg" alt="Profile" style="width: 150px;"> 
 
-Hi, I'm **Sung**! I'm a third-year undergraduate student at the University of Pennsylvania pursuing a Bachelor's degree in **Economics** with a concentration in **Statistics** at the Wharton School while pursuing an accelerated Master's degree in **Electrical Engineering**.
+Hi, I'm **Sung**! I'm a third-year undergraduate student at the University of Pennsylvania pursuing a Bachelor's degree in **Economics** with a concentration in **Statistics** at the Wharton School as well as pursuing an accelerated Master's degree in **Electrical Engineering**.
 
 Born and raised in Seoul, Korea, I moved to the United States in 2023 to pursue my undergraduate studies.
 

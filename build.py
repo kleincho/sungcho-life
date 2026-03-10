@@ -216,7 +216,7 @@ def build_lang(lang):
            custom_styles=None)
 
     render('list.html', out_root / 'papers.html',
-           title='Papers',
+           title='Research',
            entries_by_year=group_by_year(papers),
            lang=nav_lang,
            page_slug='papers.html',
